@@ -5,6 +5,7 @@ import { PlusSquare } from "lucide-react";
 import { ModeToggle } from "./theme-toggler";
 import { Input } from "./ui/input";
 import { addRecord } from "@/lib/fetcher";
+import UploadExcel from "./upload-excel";
 
 const Header = () => {
   const [open, setOpen] = React.useState(false);
@@ -40,10 +41,11 @@ const Header = () => {
           </Button>
         </div>
       )}
-      <div>
+      <div className="flex items-center gap-2">
         <Button onClick={() => setOpen(true)} className="p-0" size={"icon"}>
           <PlusSquare />
         </Button>
+        <UploadExcel />
       </div>
       <div>
         <ModeToggle />

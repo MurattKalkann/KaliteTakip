@@ -32,3 +32,20 @@ export const addRecord = async (recordData: RecordType) => {
         /* throw new Error('Error on adding data'); */
     }
 };
+export const addRecords = async (recordData: RecordType[]) => {
+    
+    try {
+        const res = await fetch("http://localhost:3000/api/add-records", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({records: recordData})
+        });
+        const data = await res.json();
+        return data;
+    } catch (error: any) {
+        return {error: error};
+        /* throw new Error('Error on adding data'); */
+    }
+};
